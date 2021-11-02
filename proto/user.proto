@@ -18,7 +18,8 @@ message Users{
 }
 
 service UserService{
-    rpc AddUser (User) returns (User);
-    rpc AddUserVerbose (User) returns (stream UserResultStream);
-    rpc AddUsers(stream User) returns (Users);
+    rpc AddUser (User) returns (User); // Normal Requisition
+    rpc AddUserVerbose (User) returns (stream UserResultStream); // Server Stream
+    rpc AddUsers(stream User) returns (Users); // Client Stream
+    rpc AddUserStreamBoth(stream User) returns (stream UserResultStream); // Stream Both (Client and Server)
 }
